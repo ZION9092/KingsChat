@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project/pages/cart_page.dart';
 import 'package:project/pages/create_account_page.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Lato",
         useMaterial3: true,
       ),
-      home: const CreateAccountPage(),
+      home: const CartPage(),
     );
   }
 }
