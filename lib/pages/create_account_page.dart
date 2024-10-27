@@ -150,7 +150,8 @@ class CreateAccountPage extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
-                                fontSize: 30),
+                                fontSize: 20
+                                ),
                           ),
                         ),
                       ),
@@ -167,7 +168,7 @@ class CreateAccountPage extends StatelessWidget {
                           style: TextStyle(
                             color: AppColors.textColor,
                             fontWeight: FontWeight.w600,
-                            fontSize: 24,
+                            fontSize: 20,
                           ),
                         ),
                         TextButton(
@@ -177,7 +178,7 @@ class CreateAccountPage extends StatelessWidget {
                             child: const Text(
                               "Log In",
                               style: TextStyle(
-                                  fontSize: 24,
+                                  fontSize: 20,
                                   color: AppColors.formColor,
                                   fontWeight: FontWeight.w600),
                             ))

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project/constants/colors.dart';
+import 'package:project/pages/home_page.dart';
+import 'package:project/pages/product_details.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -92,7 +94,7 @@ class LoginPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(() => const LoginPage());
+                          Get.to(() => const HomePage());
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.buttonColor,
@@ -107,7 +109,7 @@ class LoginPage extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w800,
-                              fontSize: 30,
+                              fontSize: 20,
                             ),
                           ),
                         ),
@@ -134,7 +136,7 @@ class LoginPage extends StatelessWidget {
                             'OR',
                             style: TextStyle(
                               color: AppColors.formColor,
-                              fontSize: 36,
+                              fontSize: 20,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -155,9 +157,7 @@ class LoginPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: ElevatedButton(
-                        onPressed: () {
-                          Get.to(() => const LoginPage());
-                        },
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.buttonColor,
                           shape: RoundedRectangleBorder(
@@ -191,7 +191,7 @@ class LoginPage extends StatelessWidget {
                           style: TextStyle(
                             color: AppColors.textColor,
                             fontWeight: FontWeight.w600,
-                            fontSize: 24,
+                            fontSize: 20,
                           ),
                         ),
                         TextButton(
@@ -199,7 +199,7 @@ class LoginPage extends StatelessWidget {
                             child: const Text(
                               "Create Account",
                               style: TextStyle(
-                                  fontSize: 24,
+                                  fontSize: 20,
                                   color: AppColors.formColor,
                                   fontWeight: FontWeight.w600),
                                   textAlign: TextAlign.center,
