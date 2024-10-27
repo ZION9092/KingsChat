@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
+import 'package:project/pages/product_details.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -97,8 +99,10 @@ class HomePage extends StatelessWidget {
         unselectedItemColor: Colors.black,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: "Cart"),
-          BottomNavigationBarItem(icon: Icon(Icons.store), label: "Village Market"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart), label: "Cart"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.store), label: "Village Market"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
           BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: "More"),
         ],
@@ -116,7 +120,8 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
-            side: BorderSide(color: isSelected ? Colors.blue[800]! : Colors.grey),
+            side:
+                BorderSide(color: isSelected ? Colors.blue[800]! : Colors.grey),
           ),
         ),
         onPressed: () {
@@ -134,105 +139,110 @@ class HomePage extends StatelessWidget {
     required double rating,
     required int reviews,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Product Image
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(8),
-              topRight: Radius.circular(8),
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => const ProductDetailsScreen());
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
             ),
-            child: Image.asset(
-              imagePath,
-              height: 100,
-              fit: BoxFit.cover,
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Product Image
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(8),
+                topRight: Radius.circular(8),
+              ),
+              child: Image.asset(
+                imagePath,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          const SizedBox(height: 8),
-          // Product Title
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+            const SizedBox(height: 8),
+            // Product Title
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+              ),
             ),
-          ),
-          // Product Price
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              price,
-              style: const TextStyle(fontSize: 12, color: Colors.grey),
+            // Product Price
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                price,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
             ),
-          ),
-          // Rating and Reviews
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                RatingBarIndicator(
-                  rating: rating,
-                  itemBuilder: (context, index) => const Icon(
-                    Icons.star,
-                    color: Colors.amber,
+            // Rating and Reviews
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  RatingBarIndicator(
+                    rating: rating,
+                    itemBuilder: (context, index) => const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    itemCount: 5,
+                    itemSize: 14,
                   ),
-                  itemCount: 5,
-                  itemSize: 14,
-                ),
-                const SizedBox(width: 4),
-                Flexible(
-                  child: Text(
-                    "$rating ($reviews reviews)",
-                    style: const TextStyle(fontSize: 12, color: Colors.grey),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
+                  const SizedBox(width: 4),
+                  Flexible(
+                    child: Text(
+                      "$rating ($reviews reviews)",
+                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const Spacer(),
-          // Add to Cart Button
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue[800],
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+            const Spacer(),
+            // Add to Cart Button
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue[800],
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  // Add to cart action
-                },
-                child: const Text(
-                  "Add to Cart",
-                  style: TextStyle(fontSize: 12, color: Colors.white),
+                  onPressed: () {
+                    // Add to cart action
+                  },
+                  child: const Text(
+                    "Add to Cart",
+                    style: TextStyle(fontSize: 12, color: Colors.white),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
-
